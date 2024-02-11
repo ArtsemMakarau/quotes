@@ -65,7 +65,7 @@ export class QuotesStateService {
 
         context.patchState({ quotes: [...context.getState().quotes, quote] });
       }),
-      retry(1)
+      retry(3)
     );
   }
 
