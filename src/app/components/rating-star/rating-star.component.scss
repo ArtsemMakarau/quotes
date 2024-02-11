@@ -1,0 +1,25 @@
+:host.small .rating-list {
+  padding: 0rem;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+
+  li {
+    padding: 0.625rem 0.3125rem;
+    width: 1rem;
+  }
+}
+
+.star {
+  cursor: pointer;
+  background-image: url("/assets/icons/empty-star.svg");
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.selected {
+    background-image: url("/assets/icons/star.svg");
+  }
+}

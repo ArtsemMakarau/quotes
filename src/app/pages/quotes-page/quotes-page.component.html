@@ -1,0 +1,8 @@
+<ng-container *ngIf="quotes$ | async as quotes">
+  <app-carousel [quotes]="quotes"></app-carousel>
+
+  <app-quotes-list
+    *ngIf="quotes | displayBestQuotes as bestQuotes"
+    [quotes]="bestQuotes"
+  ></app-quotes-list>
+</ng-container>

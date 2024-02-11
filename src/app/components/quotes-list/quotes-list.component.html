@@ -1,0 +1,17 @@
+<h1>Most Popular Quotes</h1>
+
+<ul class="quotes-list">
+  <li *ngFor="let quote of quotes">
+    <div class="text">
+      <p class="quote">" {{ quote.quote }} "</p>
+
+      <p class="author">~ {{ quote.author }}</p>
+    </div>
+
+    <app-rating-star
+      [rating]="quote.rating"
+      [disabled]="true"
+      [small]="true"
+    ></app-rating-star>
+  </li>
+</ul>

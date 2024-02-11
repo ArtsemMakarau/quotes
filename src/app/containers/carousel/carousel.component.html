@@ -1,0 +1,30 @@
+<div class="carousel" *ngIf="quotes?.length">
+  <app-rating-star
+    [rating]="quotes[currentIndex].rating"
+    (ratingChanged)="ratingChanged($event)"
+  ></app-rating-star>
+
+  <p class="quote">" {{ quotes[currentIndex].quote }} "</p>
+
+  <p class="author">~ {{ quotes[currentIndex].author }}</p>
+
+  <div class="media">
+    <button
+      type="button"
+      class="media-btn"
+      (click)="share(quotes[currentIndex].quote)"
+    >
+      <img src="/assets/icons/twitter.svg" alt="twitter icon" />
+    </button>
+  </div>
+
+  <button
+    type="button"
+    class="arrow left"
+    [disabled]="currentIndex === 0"
+    (click)="previous()"
+  >
+    <
+  </button>
+  <button type="button" class="arrow right" (click)="next()">></button>
+</div>

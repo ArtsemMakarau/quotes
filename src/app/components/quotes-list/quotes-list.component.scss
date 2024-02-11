@@ -1,0 +1,34 @@
+:host {
+  border-radius: 2rem;
+  background: white;
+  padding: 2rem;
+  width: 60%;
+}
+
+.quotes-list {
+  width: 100%;
+  display: inline-block;
+  list-style: none;
+  padding: unset;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}
+
+.text {
+  width: 60%;
+}
+
+.quote {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: 600;
+  margin-top: unset;
+}
