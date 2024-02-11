@@ -3,6 +3,7 @@
 
   <app-quotes-list
     *ngIf="quotes | displayBestQuotes as bestQuotes"
+    @slideIn
     [quotes]="bestQuotes"
   ></app-quotes-list>
 </ng-container>

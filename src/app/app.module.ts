@@ -12,6 +12,7 @@ import { QuotesStateService } from './state/quotes.state.service';
 import { QuotesListComponent } from './components/quotes-list/quotes-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { DisplayBestQuotesPipe } from './pipes/display-best-quotes.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DisplayBestQuotesPipe } from './pipes/display-best-quotes.pipe';
     DisplayBestQuotesPipe,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     NgxsModule.forRoot([QuotesStateService]),
