@@ -4,7 +4,7 @@ import { QuotesState } from './quotes.state';
 import { Injectable } from '@angular/core';
 import { AddRating, GetOfflineQuotes, GetQuote } from './quotes.actions';
 import { Quote } from '../types/quote.type';
-import { Observable, map, race, tap } from 'rxjs';
+import { Observable, map, race, retry, tap } from 'rxjs';
 import { QuoteResponseMapper } from '../helpers/quote-response-mapper';
 
 const defaultState: QuotesState = {
@@ -64,7 +64,8 @@ export class QuotesStateService {
         if (quotes.some(({ id }) => id === quote.id)) return;
 
         context.patchState({ quotes: [...context.getState().quotes, quote] });
-      })
+      }),
+      retry(1)
     );
   }
 
