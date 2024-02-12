@@ -33,12 +33,12 @@
     transform: translateY(-50%);
     border: unset;
     background: unset;
-    color: rgb(250 250 250 / 86%);
+    color: white;
     font-size: 3.125rem;
     cursor: pointer;
 
     &:hover {
-      color: rgb(224 224 224 / 86%);
+      color: rgb(239, 239, 239);
     }
 
     &:disabled {

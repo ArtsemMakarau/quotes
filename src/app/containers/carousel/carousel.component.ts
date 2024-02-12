@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { firstValueFrom } from 'rxjs';
 import { AddRating, GetQuote } from 'src/app/state/quotes.actions';
 import { Quote } from 'src/app/types/quote.type';
 
@@ -21,11 +22,11 @@ export class CarouselComponent {
     );
   }
 
-  public next(): void {
+  public async next(): Promise<void> {
     if (this.currentIndex >= this.quotes.length - 1) {
-      this._store
-        .dispatch(new GetQuote())
-        .subscribe((_) => this.currentIndex++);
+      await firstValueFrom(this._store.dispatch(new GetQuote())).then(
+        (_) => this.currentIndex++
+      );
     } else {
       this.currentIndex++;
     }
