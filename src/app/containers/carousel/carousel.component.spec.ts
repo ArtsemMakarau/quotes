@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CarouselComponent } from './carousel.component';
 import { NgxsModule, Store } from '@ngxs/store';
@@ -60,7 +60,7 @@ describe('CarouselComponent', () => {
     expect(spyDispatch).not.toHaveBeenCalled();
   });
 
-  it('should dispatch GetQuote and increment currentIndex when currentIndex >= quotes.length - 1', () => {
+  it('should dispatch GetQuote and increment currentIndex when currentIndex >= quotes.length - 1', waitForAsync(async () => {
     component.currentIndex = 2;
     component.quotes = [
       {
@@ -88,11 +88,11 @@ describe('CarouselComponent', () => {
 
     spyDispatch.and.returnValue(of(null));
 
-    component.next();
+    await component.next();
 
     expect(component.currentIndex).toBe(3);
     expect(store.dispatch).toHaveBeenCalledWith(new GetQuote());
-  });
+  }));
 
   it('should decrement currentIndex if currentIndex > 0', () => {
     component.currentIndex = 2;

@@ -66,7 +66,6 @@ describe('QuotesStateService', () => {
 
     const initialState: QuotesState = {
       quotes: [],
-      offlineQuotes: [],
     };
 
     const stateContextMock: StateContext<QuotesState> = {
@@ -92,7 +91,6 @@ describe('QuotesStateService', () => {
         { id: '1', quote: 'Quote 1', author: 'Author 1', rating: 0 },
         { id: '2', quote: 'Quote 2', author: 'Author 2', rating: 0 },
       ],
-      offlineQuotes: [],
     };
 
     const quoteId = '1';
