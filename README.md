@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
-Application deployed to https://artyom-makarov-quotes.vercel.app/
+Application deployed to https://quotes-gg0yanpxr-artyom-makarovs-projects.vercel.app/
 
 ## Development server
 
@@ -22,7 +22,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Test coverage
 
-![image](https://github.com/ArtsemMakarau/quotes/assets/125876062/e377a50f-f5e7-4cea-b97d-190a4392e061)
+![image](https://github.com/ArtsemMakarau/quotes/assets/125876062/7a5a7bd2-5200-4ac8-a93c-fb6d8dcba8a0)
 
 ## Quotes rating
 The "Best Quotes Block" is designed to showcase the most highly rated quotes within the application. It dynamically appears on the interface when the minimum criteria of having three quotes with ratings are met.
