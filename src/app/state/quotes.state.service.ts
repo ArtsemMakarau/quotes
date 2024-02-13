@@ -2,9 +2,9 @@ import { Action, State, StateContext } from '@ngxs/store';
 import { QuotesHttpService } from '../services/quotes-http.service';
 import { QuotesState } from './quotes.state';
 import { Injectable } from '@angular/core';
-import { AddRating, GetOfflineQuotes, GetQuote } from './quotes.actions';
+import { AddRating, GetQuote } from './quotes.actions';
 import { Quote } from '../types/quote.type';
-import { Observable, map, race, retry, tap } from 'rxjs';
+import { Observable, catchError, map, race, retry, tap } from 'rxjs';
 import { QuotableResponseMapper } from '../helpers/quotable-response-mapper';
 import { DummyJsonResponseMapper } from '../helpers/dummyjson-response-mapper';
 
@@ -41,17 +41,17 @@ export class QuotesStateService {
 
         localStorage.setItem('quotes', JSON.stringify(updatedQuotes));
       }),
-      retry(3)
-    );
-  }
+      retry(3),
+      catchError((err) => {
+        const offlineQuotes: Quote[] = JSON.parse(
+          localStorage.getItem('quotes') || ''
+        );
 
-  @Action(GetOfflineQuotes)
-  public getOfflineQuotes(context: StateContext<QuotesState>): void {
-    const offlineQuotes: Quote[] = JSON.parse(
-      localStorage.getItem('quotes') || ''
-    );
+        context.patchState({ quotes: offlineQuotes });
 
-    context.patchState({ quotes: offlineQuotes || [] });
+        throw err;
+      })
+    );
   }
 
   @Action(AddRating)

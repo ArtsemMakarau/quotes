@@ -24,12 +24,9 @@ export class CarouselComponent {
 
   public async next(): Promise<void> {
     if (this.currentIndex >= this.quotes.length - 1) {
-      await firstValueFrom(this._store.dispatch(new GetQuote())).then(
-        (_) => this.currentIndex++
-      );
-    } else {
-      this.currentIndex++;
+      await firstValueFrom(this._store.dispatch(new GetQuote()));
     }
+    this.currentIndex++;
   }
 
   public previous(): void {
